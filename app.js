@@ -8,8 +8,10 @@ require('./app_api/models/db');
 var apiRoutes = require('./app_api/routes/index');
 var index = require('./routes/index');
 var users = require('./routes/users');
+var seedDB = require('./seed');
 
 var app = express();
+// seedDB();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

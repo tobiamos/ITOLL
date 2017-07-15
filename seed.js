@@ -7,7 +7,7 @@ var faker = require('faker');
 var seedDB = function() {
     Vehicle.remove({}, function(err, result) {
         if (!err) {
-            for (var i = 0; i < 10 i++) {
+            for (var i = 0; i < 10; i++) {
                 Vehicle.create({
                     name: faker.name.findName(),
                     address: faker.address.streetAddress(),
@@ -28,3 +28,5 @@ var seedDB = function() {
 
 
 }
+
+module.exports = seedDB;
