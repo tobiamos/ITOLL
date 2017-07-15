@@ -23,3 +23,32 @@ module.exports.findOne = function(req,res,){
 		}
 	})
 }
+
+module.exports.createOne = function(req,res){
+	var vehicleData = req.body.vehicle;
+	Vehicle.create(vehicleData, function(err,vehicle){
+		if(!err){
+			sendJsonResponse(res,200,vehicle);
+		}
+	})
+}
+
+module.exports.editOne = function(req,res){
+	var vehicleData = req.body.vehicle;
+	var vehicleid = req.params.vehicleid;
+	Vehicle.findByIdAndUpdate(vehicleid,vehicleData, function(err, vehicle){
+		if(!err){
+			sendJsonResponse(res,200,vehicle);
+		}
+	})
+}
+
+
+module.exports.removeOne = function(req,res){
+	var vehicleid = req.params.vehicleid;
+	Vehicle.findByIdAndRemove(vehicleid, function(err, vehicle){
+		if(!err){
+			console.log('REMOVED VEHICLE WITH ID', vehicleid);
+		}
+	})
+}
